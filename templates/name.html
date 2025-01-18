@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if name %}
+    <h1>Hello {{ name }}</h1>
+{% else %}
+    <h1>What's Your Name?</h1>
+    <br/>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <!-- above wala used for csrf -->
+        {{ form.name.label(class="form-label") }}
+        <!-- above wala nameform function ka name ka sb leta -->
+        {{ form.name(class="form-control") }}
+        <!-- simple name -->
+        <br/>
+        {{ form.submit(class="btn btn-danger") }}
+
+    </form>
+{% endif %}
+
+{% endblock %}
